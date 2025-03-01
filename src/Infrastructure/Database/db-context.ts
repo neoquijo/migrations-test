@@ -60,7 +60,7 @@ export abstract class DbContext implements Disposable {
     if (this.disposed) {
       throw new Error('DbContext has been disposed');
     }
-    const sequelize = this.asyncLocalStorage.getStore();
+    const sequelize = this.sequelize;
     if (!sequelize) {
       throw new Error('Sequelize instance not found in AsyncLocalStorage');
     }
