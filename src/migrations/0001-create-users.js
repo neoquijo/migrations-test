@@ -1,14 +1,14 @@
-import { QueryInterface, DataTypes } from 'sequelize';
+const sequelize = require('sequelize')
 
-export const up = async (queryInterface: QueryInterface) => {
+const up = async (queryInterface) => {
   await queryInterface.createTable('users', {
     id: {
-      type: DataTypes.INTEGER,
+      type: sequelize.DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
     balance: {
-      type: DataTypes.INTEGER,
+      type: sequelize.DataTypes.INTEGER,
       allowNull: false,
     },
   });
@@ -18,6 +18,8 @@ export const up = async (queryInterface: QueryInterface) => {
   }]);
 };
 
-export const down = async (queryInterface: QueryInterface) => {
+const down = async (queryInterface) => {
   await queryInterface.dropTable('users');
 };
+
+module.exports = { up, down }

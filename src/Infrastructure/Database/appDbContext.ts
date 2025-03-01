@@ -18,4 +18,8 @@ export class AppDbContext extends DbContext {
     super(dbOptions, logger);
     initModels(this.sequelize);
   }
+
+  public getSequelizeInstance() {
+    return this.sequelize;
+  }
 }
